@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Green Theme Page</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='login_type_style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Welcome</h1>
+    <div class="options">
+            <div class="option" id="user-login">
+                <img src="https://icons.veryicon.com/png/o/miscellaneous/icon-icon-of-ai-intelligent-dispensing/login-user-name-1.png" alt="User Login">
+                <form action="/profile"><button id="button"><b>User</b></button></form>
+            </div>
+        <div class="option" id="admin">
+            <img src="https://icons.veryicon.com/png/o/miscellaneous/icon-icon-of-ai-intelligent-dispensing/login-user-name-1.png" alt="Admin">
+            <form action="/admin"><button id="button"><b>Admin</b></button></form>
+        </div>
+        <div class="option" id="other">
+            <img src="https://icons.veryicon.com/png/o/miscellaneous/icon-icon-of-ai-intelligent-dispensing/login-user-name-1.png" alt="Other">
+            <form action="/volunteer"><button id="button"><b>Volunteer</b></button></form>
+        </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

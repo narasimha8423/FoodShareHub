@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donation Page</title>
+<link rel="stylesheet"  href="{{ url_for('static', filename='donate_now_style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Donate</h1>
+    <div class="donate-options">
+        <div class="donate-option" id="donate-funds">
+            <h2>Donate Funds</h2>
+            <p>Help us financially to support our cause.</p>
+            <button onclick="alert('You have chosen to donate funds')">Donate</button>
+        </div>
+        <div class="donate-option" id="donate-food">
+            <h2>Donate Food</h2>
+            <p>Contribute by donating food items for those in need.</p>
+            <form action="/athentication">  <button >Donate</button></form>
+        </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

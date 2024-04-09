@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='profile_style.css') }}">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .dashboard {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            
+        }
+
+        .card1{
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 10px;
+            flex: 1;
+            text-align: center;
+           background-color:pink;
+        }
+      
+        iframe {
+            padding-left: 20%;
+            width: 50vw;
+            height: 50vh;
+            border: 0;
+        }
+        
+        .logout{
+            margin-left: 50%;
+            float: center;
+            
+        }
+        
+        
+
+       .card2{
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 10px;
+            flex: 1;
+            text-align: center;
+           background-color:skyblue;
+        }
+      .card3{
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 10px;
+            flex: 1;
+            text-align: center;
+           background-color:lightgreen;
+        }
+
+        h2 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+<h1>DashBoard</h1>
+    <div class="dashboard">
+        <div class="card1" id="totalDonationsCard">
+
+            <h2>Total Donations</h2>
+            <h3 id="totalDonations">{{ donations[0] }}</h3>
+        </div>
+        <div class="card2" id="totalVolunteersCard">
+            <h2>Total Volunteers</h2>
+            <h3 id="totalVolunteers">{{ volunteer[0]}}</h3>
+        </div>
+        <div class="card3" id="activeVolunteersCard">
+            <h2>Active Volunteers</h2>
+            <h3 id="activeVolunteers">{{volunteer_count[0]}}</h3>
+        </div>
+    </div>
+    <br><br>
+    <h2 style="text-align: center; color:blue">Donations and Delivery Data</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>order_id</th>
+                <th>Name</th>
+                <th>Phone No</th>
+                <th>Address</th>
+                <th>Food type</th>
+                <th>Food Items</th>
+                <th>Date of Donation</th>
+                <th>Delivery_address</th>
+                <th>Delivery_status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for donation in donations_list %}
+            <tr>
+                <td>{{ donation[9] }}</td>
+                <td>{{ donation[0] }}</td>
+                <td>{{ donation[2] }}</td>
+                <td>{{ donation[3] }}</td>
+                <td>{{ donation[4] }}</td>
+                <td>{{ donation[5] }}</td>
+                <td>{{ donation[6] }}</td>
+                <td>{{ donation[11] }}</td>
+                <td>{{ donation[10] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <form action="/logout"   class="logout">
+        <button type="submit" >Logout</button>
+    </form>
+
+
+    <div class="col">
+        <canvas id="userDonationPieChart" width="400" height="400"></canvas>
+    </div>
+    <div class="col">
+        <canvas id="userDonationBarChart" width="400" height="400"></canvas>
+    </div>
+
+
+        <script>
+        // JavaScript code to render pie and bar charts
+        var userDonationPieChartCtx = document.getElementById('userDonationPieChart').getContext('2d');
+        var userDonationBarChartCtx = document.getElementById('userDonationBarChart').getContext('2d');
+
+        var userDonations = {{ user_donations | tojson }};
+
+
+
+        var userDonationPieChart = new Chart(userDonationPieChartCtx, {
+            type: 'pie',
+            data: {
+                labels: userDonations.map(item => item[0]),
+                datasets: [{
+                    label: 'User Donations',
+                    data: userDonations.map(item => item[1]),
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.5)',
+                        'rgba(54, 162, 235, 0.5)',
+                        'rgba(255, 206, 86, 0.5)',
+                    ],
+                }]
+            }
+        });
+
+        var userDonationBarChart = new Chart(userDonationBarChartCtx, {
+            type: 'bar',
+            data: {
+                labels: userDonations.map(item => item[0]),
+                datasets: [{
+                    label: 'User Donations',
+                    data: userDonations.map(item => item[1]),
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.5)',
+                        'rgba(54, 162, 235, 0.5)',
+                        'rgba(255, 206, 86, 0.5)',
+                    ],
+                }]
+            }
+        });
+    </script>
+
+
+    
+</body>
+</html>

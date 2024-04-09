@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frequently Asked Questions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='faqs_style.css') }}" >
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      
+      <h1>Frequently Asked Questions</h1>
+
+      <div class="faq">
+        <button class="accordion">
+          What are some ways to reduce food loss and food wastage?
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="pannel">
+          <p>
+            The best approach to reducing food loss and waste is not to create it in the first place. Waste can be avoided by improving product development, storage, shopping/ordering, marketing, labeling, and cooking methods. If excess food is unavoidable, recover it to donate to hunger-relief organizations so that they can feed people in need. Inedible food can be recycled into other products such as animal feed, compost and worm castings, bioenergy, bioplastics and clothing.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <button class="accordion">
+          what might be some benefits of reducing food waste?
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="pannel">
+          <p>
+            Reducing trash. Although it may not seem like a big deal to toss spoiled food here and there, it adds up over time and multiplies when everybody is doing it. ...
+The climate connection. Wasting less food has a direct climate benefit. ...
+Your financial benefit..
+          </p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <button class="accordion">
+          What role does education play in reducing food loss nad waste?
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="pannel">
+          <p>
+           Public education is very important for helping future generations (as well as current) understand where food comes from and the impacts and resources that go into it. It can help more people value food, as well as know how to use food, cook with it, and other tips that can cut down on household food waste.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <button class="accordion">
+          What are the top two things governments can do to encourage food loss and waste reduction in their countries? 
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="pannel">
+          <p>
+            First, each country should set a target to reduce food loss and waste, ensuring measurement and reporting by businesses, the public sector and others, and then develop a targeted program to tackle hotspots. As part of this, countries may decide to require businesses to measure and report on food loss and waste or require businesses to work with their supply chains and their customers to help reduce this waste.
+
+Second, as countries work to rebuild their economies post-COVID-19, they should take this opportunity to address food loss and waste. The pandemic highlighted a number of weaknesses in the food system, leading to loss and waste. But it also showed that at the household level at least, when people worry that they may not be able to go so easily to the store, progress can be made quickly. Smart governments will capitalize on these facts, making a step-change in addressing food loss and waste.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <button class="accordion">
+          Where does wasted food go?
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="pannel">
+          <p>
+            At home, the best place for fruit, vegetable and grains is in the compost (meat and dairy foods
+should not go into the compost). If there is a Green Bin that’s good too! Food should not be
+thrown into the garbage because it produces methane gas that contributes to climate change. 
+          </p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <button class="accordion">
+          Can food donation help reduce food waste?
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="pannel">
+          <p>
+            Facilitation of food donation is a priority area of work in the EU’s action plan to prevent food waste. Food waste prevention aims to avoid the generation of surplus food in the food supply chain. However, when this occurs and the food is safe and fit for human consumption, the preferred destination is to make it available to people in need.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+function changeBackground(color) {
+   document.body.style.background = color;
+}
+
+window.addEventListener("load",function() { changeBackground('green') 
+});
+
+      var acc = document.getElementsByClassName("accordion");
+      var i;
+
+      for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          this.parentElement.classList.toggle("active");
+
+          var pannel = this.nextElementSibling;
+
+          if (pannel.style.display === "block") {
+            pannel.style.display = "none";
+          } else {
+            pannel.style.display = "block";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

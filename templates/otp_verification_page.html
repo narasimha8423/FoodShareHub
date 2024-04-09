@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='otp_verification_style.css') }}">
+    <title>OTP Authentication</title>
+</head>
+<body>
+    {% if alert_message %}
+    <script>
+        alert("{{ alert_message }}");
+    </script>
+    {% endif %}
+    <div class="container">
+        <h1>OTP Authentication</h1>
+        <form action="/send_otp" id="sendOTPForm" method="post">
+            <div class="form-group">
+                <label for="mail">Enter your Email Id:</label>
+                <input type="text" id="email" name="email" required>
+            </div>
+            <button type="submit">Send OTP</button>
+        </form>
+    </div>
+</body>
+</html>

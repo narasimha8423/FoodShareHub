@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donors List</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        tr:hover {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Donors List</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Item</th>
+            
+        </tr>
+        {% for donor in donors %}
+        <tr>
+            <td>{{ donor[1] }}</td>
+            <td>{{ donor[0] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Donation Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='food_donation_style.css') }}">
+</head>
+<body>
+    {% if alert_message %}
+    <script>
+        alert("{{ alert_message }}");
+    </script>
+    {% endif %}
+    <div class="container">
+        <h1>Food Donation Form</h1>
+        <form action="/donate_food" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" required></textarea>
+            
+            <!-- <input type="radio" id="veg_or_non_veg" name="veg_or_non_veg" required>
+            <label for="veg">veg</label>
+            <input type="radio" name="veg_or_non_veg"  required>
+            <label for="nonVeg">Non-Veg</label><br> -->
+
+            <label for="food_type">Food Type:</label>
+            <select id="food_type"  name="food_type" required>
+                <option value="raw">Raw</option>
+                <option value="cooked">Cooked</option>
+                <option value="packed">Packed</option>
+            </select><br>
+
+            <label for="food_name">Food Items:</label>
+            <input type="text" id="food_name" name="food_name" required><br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
